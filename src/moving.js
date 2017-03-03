@@ -3,7 +3,7 @@ let dataParcer = require('./parse.js');
 
 let movingData = dataParcer('traffic-data/simple_data/moving_jan_2016.csv');
 
-let items = ['VIOLATIONDESC', 'LOCATION', 'FINEAMT', 'TICKETTYPE', 'VIOLATIONCODE', 'PENALTY1', 'PENALTY2'];
+let items = ['VIOLATIONDESC', 'LOCATION', 'FINEAMT', 'TICKETTYPE', 'VIOLATIONCODE', 'PENALTY1', 'PENALTY2', 'ACCIDENTINDICATOR'];
 
 // loop (violationDataRequested)
 let violationDescIndex = movingData[0].indexOf('VIOLATIONDESC');
@@ -13,6 +13,8 @@ let ticketTypeIndex = movingData[0].indexOf('TICKETTYPE');
 let violationCode = movingData[0].indexOf('VIOLATIONCODE');
 let penaltyTypeOne = movingData[0].indexOf('PENALTY1');
 let penaltyTypeTwo = movingData[0].indexOf('PENALTY2');
+let accidentIndicator = movingData[0].indexOf('ACCIDENTINDICATOR');
+
 
 for (let index = 1; index < movingData.length ; index++) {
   console.log('Moving Data for index: ' + index);
@@ -29,6 +31,8 @@ for (let index = 1; index < movingData.length ; index++) {
   console.log( 'PENALTY1:' + movingData[index][penaltyTypeOne]);
   console.log('\n');
   console.log('PENALTY2:' + movingData[index][penaltyTypeTwo]);
+  console.log('\n');
+  console.log('ACCIDENTINDICATOR:' + movingData[index][accidentIndicator]);
   console.log('\n');
 
 
