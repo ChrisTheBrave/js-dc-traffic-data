@@ -16,23 +16,23 @@ let penaltyTypeTwo = movingData[0].indexOf('PENALTY2');
 let accidentIndicator = movingData[0].indexOf('ACCIDENTINDICATOR');
 
 for (let index = 1; index < movingData.length ; index++) {
-  // console.log('Moving Data for index: ' + index); All of these logs are still valueable
-  // console.log('VIOLATIONDESC:' + movingData[index][violationDescIndex]);
-  // console.log('\n');
-  // console.log('LOCATION:' + movingData[index][locationIndex]);
-  // console.log('\n');
+  //  console.log('Moving Data for index: ' + index); //All of these logs are still valueable
+  //  console.log('VIOLATIONDESC:' + movingData[index][violationDescIndex]);
+  //  console.log('\n');
+  //  console.log('LOCATION:' + movingData[index][locationIndex]);
+  //  console.log('\n');
   //  console.log('FINEAMT:' + movingData[index][fineAmtIndex]);
-  // console.log('\n');
-  // console.log('TICKETTYPE:' + movingData[index][ticketTypeIndex]);
-  // console.log('\n');
-  // console.log('VIOLATIONCODE:' + movingData[index][violationCode]);
-  // console.log('\n');
-  // console.log( 'PENALTY1:' + movingData[index][penaltyTypeOne]);
-  // console.log('\n');
-  // console.log('PENALTY2:' + movingData[index][penaltyTypeTwo]);
-  // console.log('\n');
-  // console.log('ACCIDENTINDICATOR:' + movingData[index][accidentIndicator]);
-  // console.log('\n');
+  //  console.log('\n');
+  //  console.log('TICKETTYPE:' + movingData[index][ticketTypeIndex]);
+  //  console.log('\n');
+  //  console.log('VIOLATIONCODE:' + movingData[index][violationCode]);
+  //  console.log('\n');
+  //  console.log( 'PENALTY1:' + movingData[index][penaltyTypeOne]);
+  //  console.log('\n');
+  //  console.log('PENALTY2:' + movingData[index][penaltyTypeTwo]);
+  //  console.log('\n');
+  //  console.log('ACCIDENTINDICATOR:' + movingData[index][accidentIndicator]);
+  //  console.log('\n');
 
 
 
@@ -43,7 +43,9 @@ for (let index = 1; index < movingData.length ; index++) {
 
 let violationCount = {}; //What was the most common violation type for a moving violation?
 
-let fineTotal = 0;
+let fineTotal = 0; //What is the average fine amount?
+
+let photoTotal = 0; //What is the total income from photo citations?
 
 movingData.forEach(function callback(violation) {
   if (violation[violationCode] !== '' && !violationCount.hasOwnProperty(violation[violationCode])) {
@@ -59,19 +61,22 @@ movingData.forEach(function callback(violation) {
     fineTotal += Number(violation[fineAmtIndex]);
 
   }
-
+  //For total income of photo citations
+  if (Number(violation[ticketTypeIndex])) {
+    photoTotal += Number(violation[ticketTypeIndex]);
+  }
 
 });
 //Answer to Question 3
 let fineAverage = fineTotal / (movingData.length - 1);
- console.log(fineTotal);
- console.log(fineAverage);
+ //console.log(fineTotal);
+ //console.log(fineAverage);
 
+ console.log(photoTotal);
 
 //console.log(violationCount); still using this
 
 
-//What is the average fine amount?
 
 
 

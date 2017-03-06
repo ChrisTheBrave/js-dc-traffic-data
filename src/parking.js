@@ -1,31 +1,31 @@
 
 
 //change to module.exports later
-function violations() {
+//function violations() {
   let dataParcer = require('./parse.js');
   let parkingData = dataParcer('traffic-data/simple_data/parking_feb_2016.csv');
 
-  // let items = ['VIOLATIONDESC', 'LOCATION', 'FINEAMT', 'TICKETTYPE', 'VIOLATIONCODE', 'PENALTY1', 'PENALTY2', 'ACCIDENTINDICATOR'];
+  let items = ['VIOLATION_CODE', 'VIOLATION_DESCRIPTION', 'RP_PLATE_STATE' ];
   //
   // // loop (violationDataRequested)
-  // let violationDescIndex = movingData[0].indexOf('VIOLATIONDESC');
-  // let locationIndex = movingData[0].indexOf('LOCATION');
-  // let fineAmtIndex = movingData[0].indexOf('FINEAMT');
-  // let ticketTypeIndex = movingData[0].indexOf('TICKETTYPE');
-  // let violationCode = movingData[0].indexOf('VIOLATIONCODE');
-  // let penaltyTypeOne = movingData[0].indexOf('PENALTY1');
-  // let penaltyTypeTwo = movingData[0].indexOf('PENALTY2');
-  // let accidentIndicator = movingData[0].indexOf('ACCIDENTINDICATOR');
+  let violationCodeIndex = parkingData[0].indexOf('VIOLATION_CODE');
+  let violationDecriptionIndex = parkingData[0].indexOf('VIOLATION_DESCRIPTION');
+  let plateStateIndex = parkingData[0].indexOf('RP_PLATE_STATE');
+  // let ticketTypeIndex = parkingData[0].indexOf('TICKETTYPE');
+  // let violationCode = parkingData[0].indexOf('VIOLATIONCODE');
+  // let penaltyTypeOne = parkingData[0].indexOf('PENALTY1');
+  // let penaltyTypeTwo = parkingData[0].indexOf('PENALTY2');
+  // let accidentIndicator = parkingData[0].indexOf('ACCIDENTINDICATOR');
   //
   //
-  // for (let index = 1; index < parkingData.length ; index++) {
-  //   console.log('Moving Data for index: ' + index);
-  //   console.log('VIOLATIONDESC:' + movingData[index][violationDescIndex]);
-  //   console.log('\n');
-  //   console.log('LOCATION:' + movingData[index][locationIndex]);
-  //   console.log('\n');
-  //   console.log('FINEAMT:' + movingData[index][fineAmtIndex]);
-  //   console.log('\n');
+  for (let index = 1; index < parkingData.length ; index++) {
+    console.log('Parking Data for index: ' + index);
+    console.log('VIOLATION_CODE:' + parkingData[index][violationCodeIndex]);
+    console.log('\n');
+    console.log('LOCATION:' + parkingData[index][violationDecriptionIndex]);
+    console.log('\n');
+    console.log('FINEAMT:' + parkingData[index][plateStateIndex]);
+    console.log('\n');
   //   console.log('TICKETTYPE:' + movingData[index][ticketTypeIndex]);
   //   console.log('\n');
   //   console.log('VIOLATIONCODE:' + movingData[index][violationCode]);
@@ -49,20 +49,19 @@ function violations() {
   //console.log(parkingData);
 
 
-
-
-
-
-
-
-
-
-
-  return {}; //re
 }
+
+
+
+
+
+
+
+  //return {};
+
 //;
 
-violations();
+//violations();
 
 
 

@@ -1,6 +1,14 @@
 let filesystem = require('fs');
 
- module.exports =function parse(fileName) {
+let contentsOfTheFile = filesystem.readFileSync('./traffic-data/simple_data/mo');
+// the contents of the file are actually a Buffer
+// console.log( contentsOfTheFile.toString() );
+let stringValue = contentsOfTheFile.toString();
+let rows = stringValue.split('\n');
+console.log(rows);
+
+
+  module.exports =function parse(fileName) {
   let filesystem = require('fs');
 
   let inputData = filesystem.readFileSync(fileName);
@@ -34,7 +42,7 @@ let filesystem = require('fs');
 
   return returnData;
 
-}
+};
 // ;
 
 
